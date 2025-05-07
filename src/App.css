@@ -42,7 +42,7 @@
   color: #888;
 }
 
-/* New layout utilities */
+/* Layout utilities */
 .page-container {
   width: 100%;
   max-width: 1200px;
@@ -71,6 +71,15 @@
   padding: 1rem;
   margin-bottom: 1rem;
   overflow: hidden;
+}
+
+/* Page content container */
+.centered-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  overflow-x: hidden;
 }
 
 /* Mobile responsiveness */
