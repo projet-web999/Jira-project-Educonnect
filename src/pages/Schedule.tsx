@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { MapPin, Clock, User, Calendar, Bell } from 'lucide-react';
+import { MapPin, Clock, User, Calendar, Bell, BookOpen } from 'lucide-react';
 import { scheduleData } from '@/data/mockData';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
