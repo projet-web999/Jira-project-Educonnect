@@ -15,6 +15,18 @@ import AttendanceRecords from "@/pages/AttendanceRecords";
 import Announcements from "@/pages/Announcements";
 import Emergency from "@/pages/Emergency";
 import Supplies from "@/pages/Supplies";
+import StudyRooms from "@/pages/StudyRooms";
+import Library from "@/pages/Library";
+import Projects from "@/pages/Projects";
+import ServiceIssues from "@/pages/ServiceIssues";
+import Calendar from "@/pages/Calendar";
+import CafeteriaMenu from "@/pages/CafeteriaMenu";
+import Resources from "@/pages/Resources";
+import Equipment from "@/pages/Equipment";
+import Gradebook from "@/pages/Gradebook";
+import Progress from "@/pages/Progress";
+import Newsletters from "@/pages/Newsletters";
+import Conference from "@/pages/Conference";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,7 +49,18 @@ const App = () => (
               <Route path="/announcements" element={<Announcements />} />
               <Route path="/emergency" element={<Emergency />} />
               <Route path="/supplies" element={<Supplies />} />
-              {/* Add other routes here as they're implemented */}
+              <Route path="/study-rooms" element={<StudyRooms />} />
+              <Route path="/library" element={<Library />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/service-issues" element={<ServiceIssues />} />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/cafeteria-menu" element={<CafeteriaMenu />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/equipment" element={<Equipment />} />
+              <Route path="/gradebook" element={<Gradebook />} />
+              <Route path="/progress" element={<Progress />} />
+              <Route path="/newsletters" element={<Newsletters />} />
+              <Route path="/conference" element={<Conference />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
