@@ -17,15 +17,13 @@ const Layout = () => {
   }, [isAuthenticated, navigate]);
   
   return (
-    <div className="flex h-screen bg-gray-50 overflow-hidden">
+    <div className="flex min-h-screen bg-gray-50">
       <Navigation />
-      <div className="flex-1 flex flex-col overflow-auto">
-        <div className="min-h-screen">
-          <div className="p-4 md:p-6 mx-auto max-w-7xl">
-            <Outlet />
-          </div>
+      <main className="flex-1 overflow-auto">
+        <div className="container mx-auto px-4 py-6 max-w-7xl">
+          <Outlet />
         </div>
-      </div>
+      </main>
     </div>
   );
 };
