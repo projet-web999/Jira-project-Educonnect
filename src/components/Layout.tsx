@@ -17,11 +17,11 @@ const Layout = () => {
   }, [isAuthenticated, navigate]);
   
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex h-screen bg-gray-50 overflow-hidden">
       <Navigation />
-      <div className="flex-1 transition-all duration-300 lg:ml-64">
-        <div className="min-h-screen pt-16 lg:pt-0">
-          <div className="p-4 md:p-6 max-w-7xl mx-auto">
+      <div className="flex-1 flex flex-col overflow-auto">
+        <div className="min-h-screen">
+          <div className="p-4 md:p-6 mx-auto max-w-7xl">
             <Outlet />
           </div>
         </div>
