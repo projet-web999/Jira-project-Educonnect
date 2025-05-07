@@ -1,9 +1,8 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { ZoomIn, ZoomOut, Search, MapPin, Building } from "lucide-react";
+import { ZoomIn, ZoomOut, Search, MapPin, Building, Clock, ArrowRight, Phone, User } from "lucide-react";
 import { buildingsData } from '@/data/mockData';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
