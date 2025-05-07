@@ -17,15 +17,19 @@ const Layout = () => {
   }, [isAuthenticated, navigate]);
   
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Navigation />
-      <main className="flex-1 lg:ml-64 pt-16 lg:pt-0">
-        <div className="container mx-auto px-4 py-0 max-w-7xl">
-          <div className="overflow-auto p-0">
+    <div className="min-h-screen bg-gray-50 flex">
+      {/* Main layout container with sidebar and content area */}
+      <div className="flex w-full">
+        {/* Navigation sidebar - fixed width */}
+        <Navigation />
+        
+        {/* Main content area - takes remaining width */}
+        <main className="flex-1 ml-64 pt-16 lg:pt-16">
+          <div className="w-full px-6 py-6 max-w-7xl">
             <Outlet />
           </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 };
