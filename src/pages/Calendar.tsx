@@ -124,63 +124,91 @@ const Calendar = () => {
               modifiers={modifiers}
               modifiersStyles={modifiersStyles}
             />
-            <Button className="w-full mt-4" size="sm">
-              <Bell className="h-4 w-4 mr-2" />
-              Set Reminder
-            </Button>
           </CardContent>
         </Card>
         
         <Card className="md:col-span-2">
           <CardHeader className="pb-2">
             <CardTitle className="text-lg">
-              {date ? (
-                <>Events for {date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}</>
-              ) : (
-                <>Select a date to view events</>
-              )}
+              {date ? date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) : 'No Date Selected'}
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {selectedDateEvents.length > 0 ? (
+            {selectedDateEvents.length === 0 ? (
+              <div className="text-center py-12 text-muted-foreground">
+                No events scheduled for this date.
+              </div>
+            ) : (
               <div className="space-y-4">
-                {selectedDateEvents.map(event => (
-                  <div
-                    key={event.id}
-                    className="p-4 border rounded-lg hover:bg-gray-50 transition-colors"
-                  >
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-semibold">{event.title}</h3>
+                {selectedDateEvents.map((event) => (
+                  <div key={event.id} className="border rounded-lg p-4 transition-colors hover:bg-gray-50">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="font-medium">{event.title}</h3>
+                        <div className="mt-2 space-y-1">
+                          <div className="flex items-center text-sm text-muted-foreground">
+                            <Clock className="mr-1 h-4 w-4" />
+                            <span>{formatTime(event.date)}</span>
+                          </div>
+                          <div className="flex items-center text-sm text-muted-foreground">
+                            <MapPin className="mr-1 h-4 w-4" />
+                            <span>{event.location}</span>
+                          </div>
+                        </div>
+                      </div>
                       <Badge variant="outline" className={getCategoryColor(event.category)}>
                         {event.category}
                       </Badge>
                     </div>
-                    
-                    <p className="text-sm text-gray-600 mb-3">{event.description}</p>
-                    
-                    <div className="grid grid-cols-2 gap-2 text-sm text-gray-500">
-                      <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-2" />
-                        {formatTime(event.date)}
-                      </div>
-                      <div className="flex items-center">
-                        <MapPin className="h-4 w-4 mr-2" />
-                        {event.location}
-                      </div>
-                    </div>
+                    <p className="mt-3 text-sm text-gray-600">{event.description}</p>
                   </div>
                 ))}
-              </div>
-            ) : (
-              <div className="flex flex-col items-center justify-center h-48 text-center">
-                <CalendarIcon className="h-12 w-12 text-gray-300 mb-2" />
-                <p className="text-gray-500 mb-1">No events scheduled for this day</p>
-                <p className="text-sm text-gray-400">Select another date or create a new event</p>
               </div>
             )}
           </CardContent>
         </Card>
       </div>
+      
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg">Upcoming Events</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            {events
+              .sort((a, b) => a.date.getTime() - b.date.getTime())
+              .slice(0, 3)
+              .map((event) => (
+                <div key={event.id} className="flex items-start gap-3 p-3 rounded-lg border transition-colors hover:bg-gray-50">
+                  <div className="bg-gray-100 p-2 rounded-lg text-center min-w-[60px]">
+                    <span className="block text-sm font-medium">
+                      {event.date.toLocaleDateString('en-US', { month: 'short' })}
+                    </span>
+                    <span className="block text-xl font-bold">
+                      {event.date.getDate()}
+                    </span>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-medium">{event.title}</h4>
+                    <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
+                      <Clock className="h-3 w-3" />
+                      <span>{formatTime(event.date)}</span>
+                      <span>•</span>
+                      <MapPin className="h-3 w-3" />
+                      <span>{event.location}</span>
+                    </div>
+                  </div>
+                  <Badge variant="outline" className={getCategoryColor(event.category)}>
+                    {event.category}
+                  </Badge>
+                </div>
+              ))}
+          </div>
+          <div className="mt-4 flex justify-center">
+            <Button variant="outline">View All Events</Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
