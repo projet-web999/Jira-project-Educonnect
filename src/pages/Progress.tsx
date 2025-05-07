@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
+import { Progress as ProgressBar } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowRight, Calendar, ChevronUp, Clock, Download, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -203,7 +203,10 @@ const Progress = () => {
                     
                     <div className="mb-4">
                       <p className="mb-1 text-sm">Overall Performance</p>
-                      <Progress value={subject.percentage} className={getProgressColor(subject.percentage)} />
+                      <ProgressBar 
+                        value={subject.percentage} 
+                        className={getProgressColor(subject.percentage)} 
+                      />
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">

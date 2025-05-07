@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -133,6 +132,19 @@ const Conference = () => {
     return dates;
   };
   
+  // Custom modifiers for calendar
+  const modifiersStyles = {
+    conference: { 
+      fontWeight: 'bold',
+      backgroundColor: 'rgba(59, 130, 246, 0.1)',
+      borderColor: 'rgba(59, 130, 246, 0.5)'
+    }
+  };
+  
+  const modifiers = {
+    conference: getConferenceDates()
+  };
+  
   return (
     <div className="space-y-6">
       <div>
@@ -153,7 +165,8 @@ const Conference = () => {
               selected={date}
               onSelect={setDate}
               className="rounded-md border"
-              highlightedDates={getConferenceDates()}
+              modifiers={modifiers}
+              modifiersStyles={modifiersStyles}
             />
             <Button className="w-full mt-4">
               <Plus className="h-4 w-4 mr-2" />

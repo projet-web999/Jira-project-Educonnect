@@ -61,10 +61,25 @@ const Calendar = () => {
       event.date.getFullYear() === date.getFullYear()
   );
   
+  // Get all event dates for styling in the calendar
   const getEventDates = () => {
     return events.map(event => 
       new Date(event.date.getFullYear(), event.date.getMonth(), event.date.getDate())
     );
+  };
+  
+  // Custom day rendering function for highlighting event dates
+  const modifiersStyles = {
+    event: { 
+      fontWeight: 'bold',
+      backgroundColor: 'rgba(59, 130, 246, 0.1)',
+      borderColor: 'rgba(59, 130, 246, 0.5)'
+    }
+  };
+  
+  // Custom day renderer
+  const modifiers = {
+    event: getEventDates()
   };
   
   const getCategoryColor = (category: string) => {
@@ -106,7 +121,8 @@ const Calendar = () => {
               selected={date}
               onSelect={setDate}
               className="rounded-md border"
-              highlightedDates={getEventDates()}
+              modifiers={modifiers}
+              modifiersStyles={modifiersStyles}
             />
             <Button className="w-full mt-4" size="sm">
               <Bell className="h-4 w-4 mr-2" />
