@@ -19,9 +19,9 @@ const Layout = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Navigation />
-      <main className="flex-1 overflow-hidden pt-16 lg:pt-2 lg:pl-64">
-        <div className="container mx-auto px-4 py-2 max-w-7xl">
-          <div className="overflow-auto max-h-[calc(100vh-64px)] p-2">
+      <main className="flex-1 lg:ml-64 pt-16 lg:pt-0">
+        <div className="container mx-auto px-4 py-0 max-w-7xl">
+          <div className="overflow-auto p-0">
             <Outlet />
           </div>
         </div>
