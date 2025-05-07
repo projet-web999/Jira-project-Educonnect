@@ -8,8 +8,8 @@ const Emergency = () => {
   return (
     <div className="space-y-6">
       <div className="mb-6">
-        <h1 className="text-3xl font-bold">Emergency Contacts</h1>
-        <p className="text-gray-500 mt-1">Important contacts for emergency situations</p>
+        <h1 className="text-3xl font-bold">Emergency & IT Support Contacts</h1>
+        <p className="text-gray-500 mt-1">Important contacts for technical support and emergencies</p>
       </div>
 
       <Card className="mb-6 border-red-200 bg-red-50">
@@ -19,13 +19,13 @@ const Emergency = () => {
               <AlertCircle className="h-8 w-8 text-red-600" />
             </div>
             <div className="flex-1">
-              <h2 className="text-xl font-bold text-red-700">Emergency Procedures</h2>
+              <h2 className="text-xl font-bold text-red-700">Campus Emergency Procedures</h2>
               <p className="mt-1 text-red-700">
-                In case of emergency, first ensure your safety, then contact the appropriate emergency service.
+                In case of emergency, first ensure your safety, then contact campus security or the appropriate emergency service.
               </p>
             </div>
             <Button className="bg-red-600 hover:bg-red-700" size="lg">
-              <PhoneCall className="mr-2 h-4 w-4" /> Call 911
+              <PhoneCall className="mr-2 h-4 w-4" /> Call Campus Security
             </Button>
           </div>
         </CardContent>
@@ -65,14 +65,14 @@ const Emergency = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Campus Safety Map</CardTitle>
+          <CardTitle>Campus Emergency Map</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="aspect-video bg-gray-100 rounded-md flex items-center justify-center">
-            <p className="text-gray-500">Campus safety map would be displayed here</p>
+            <p className="text-gray-500">Campus evacuation routes and emergency equipment locations</p>
           </div>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Button variant="outline" className="w-full">Download Safety Map</Button>
+            <Button variant="outline" className="w-full">Download Campus Map</Button>
             <Button variant="outline" className="w-full">View Evacuation Routes</Button>
           </div>
         </CardContent>

@@ -23,8 +23,8 @@ const AttendanceRecords = () => {
   return (
     <>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold">Attendance Records</h1>
-        <p className="text-gray-500 mt-1">View your child's attendance history</p>
+        <h1 className="text-3xl font-bold">Programming Class Attendance</h1>
+        <p className="text-gray-500 mt-1">View your student's programming course attendance history</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -119,14 +119,14 @@ const AttendanceRecords = () => {
               <div className="mt-6 space-y-3">
                 <h3 className="font-medium">Notes</h3>
                 <p className="text-sm text-gray-600">
-                  Regular attendance is important for academic success. If your child must be absent, 
-                  please notify the school in advance.
+                  Regular attendance is crucial for programming and technical courses. If your student must be absent, 
+                  please notify the instructor in advance.
                 </p>
                 
                 <div className="flex items-center p-3 rounded-lg bg-amber-50 border border-amber-200">
                   <Calendar className="h-5 w-5 text-amber-500 mr-2" />
                   <span className="text-sm">
-                    School policy requires a minimum attendance rate of 80%
+                    Computer Science Department requires a minimum attendance rate of 85% for lab-based courses
                   </span>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const AttendanceRecords = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-600 mb-4">
-                If your child will be absent, please notify the school.
+                If your student will be absent from programming classes, please notify the instructor.
               </p>
               <Button className="w-full">Report Absence</Button>
             </CardContent>

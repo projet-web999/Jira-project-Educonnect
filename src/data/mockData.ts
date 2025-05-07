@@ -2,63 +2,63 @@
 export const scheduleData = [
   {
     id: '1',
-    subject: 'Mathematics',
+    subject: 'Advanced Algorithms',
     teacher: 'Prof. Johnson',
-    location: 'Building A, Room 102',
+    location: 'Computer Science Building, Lab 102',
     time: '8:30 AM - 9:20 AM',
     day: 'Monday',
     colorClass: 'border-blue-400 bg-blue-50'
   },
   {
     id: '2',
-    subject: 'Physics',
+    subject: 'Database Systems',
     teacher: 'Dr. Smith',
-    location: 'Science Lab, Room 305',
+    location: 'Database Lab, Room 305',
     time: '9:30 AM - 10:20 AM',
     day: 'Monday',
     colorClass: 'border-purple-400 bg-purple-50'
   },
   {
     id: '3',
-    subject: 'English Literature',
+    subject: 'Technical Communication',
     teacher: 'Ms. Davis',
-    location: 'Building B, Room 210',
+    location: 'Media Building, Room 210',
     time: '10:30 AM - 11:20 AM',
     day: 'Monday',
     colorClass: 'border-green-400 bg-green-50'
   },
   {
     id: '4',
-    subject: 'History',
+    subject: 'Computer Architecture',
     teacher: 'Mr. Thompson',
-    location: 'Building C, Room 105',
+    location: 'Hardware Lab, Room 105',
     time: '11:30 AM - 12:20 PM',
     day: 'Monday',
     colorClass: 'border-amber-400 bg-amber-50'
   },
   {
     id: '5',
-    subject: 'Computer Science',
+    subject: 'Artificial Intelligence',
     teacher: 'Prof. Wilson',
-    location: 'IT Lab, Room 401',
+    location: 'AI Lab, Room 401',
     time: '1:30 PM - 2:20 PM',
     day: 'Monday',
     colorClass: 'border-red-400 bg-red-50'
   },
   {
     id: '6',
-    subject: 'Biology',
+    subject: 'Web Development',
     teacher: 'Dr. Clark',
-    location: 'Science Lab, Room 302',
+    location: 'Web Lab, Room 302',
     time: '8:30 AM - 9:20 AM',
     day: 'Tuesday',
     colorClass: 'border-emerald-400 bg-emerald-50'
   },
   {
     id: '7',
-    subject: 'Chemistry',
+    subject: 'Data Science',
     teacher: 'Prof. Roberts',
-    location: 'Science Lab, Room 304',
+    location: 'Data Science Lab, Room 304',
     time: '9:30 AM - 10:20 AM',
     day: 'Tuesday',
     colorClass: 'border-teal-400 bg-teal-50'
@@ -68,46 +68,46 @@ export const scheduleData = [
 export const buildingsData = [
   {
     id: '1',
-    name: 'Main Building',
+    name: 'Computer Science Building',
     floors: 4,
     rooms: 40,
-    facilities: ['Administration', 'Cafeteria', 'Auditorium'],
+    facilities: ['Administration', 'Cafeteria', 'Lecture Halls'],
     lat: 51.505,
     lng: -0.09,
   },
   {
     id: '2',
-    name: 'Science Building',
+    name: 'Technology Innovation Center',
     floors: 3,
     rooms: 30,
-    facilities: ['Laboratories', 'Research Center', 'Lecture Halls'],
+    facilities: ['Research Labs', 'Startup Incubator', 'Conference Rooms'],
     lat: 51.506,
     lng: -0.091,
   },
   {
     id: '3',
-    name: 'Library',
+    name: 'Digital Library',
     floors: 2,
     rooms: 15,
-    facilities: ['Study Rooms', 'Computer Lab', 'Archives'],
+    facilities: ['Study Rooms', 'Computer Labs', 'Digital Archives'],
     lat: 51.5055,
     lng: -0.0895,
   },
   {
     id: '4',
-    name: 'Sports Complex',
+    name: 'Multimedia Complex',
     floors: 2,
     rooms: 10,
-    facilities: ['Gymnasium', 'Swimming Pool', 'Tennis Courts'],
+    facilities: ['Recording Studios', 'Animation Labs', 'VR Development'],
     lat: 51.5045,
     lng: -0.088,
   },
   {
     id: '5',
-    name: 'Arts Center',
+    name: 'Design Center',
     floors: 2,
     rooms: 20,
-    facilities: ['Art Studios', 'Music Rooms', 'Theater'],
+    facilities: ['UX/UI Labs', 'Game Design Studios', 'Presentation Theater'],
     lat: 51.5065,
     lng: -0.092,
   }
@@ -119,116 +119,116 @@ export const attendanceData = [
     studentName: 'Alex Johnson',
     date: '2023-05-01',
     status: 'present',
-    class: 'Mathematics'
+    class: 'Advanced Algorithms'
   },
   {
     studentId: 'student-1',
     studentName: 'Alex Johnson',
     date: '2023-05-02',
     status: 'present',
-    class: 'Physics'
+    class: 'Database Systems'
   },
   {
     studentId: 'student-1',
     studentName: 'Alex Johnson',
     date: '2023-05-03',
     status: 'absent',
-    class: 'English Literature'
+    class: 'Technical Communication'
   },
   {
     studentId: 'student-1',
     studentName: 'Alex Johnson',
     date: '2023-05-04',
     status: 'present',
-    class: 'History'
+    class: 'Computer Architecture'
   },
   {
     studentId: 'student-1',
     studentName: 'Alex Johnson',
     date: '2023-05-05',
     status: 'present',
-    class: 'Computer Science'
+    class: 'Artificial Intelligence'
   },
   {
     studentId: 'student-2',
     studentName: 'Emily Davis',
     date: '2023-05-01',
     status: 'present',
-    class: 'Mathematics'
+    class: 'Advanced Algorithms'
   },
   {
     studentId: 'student-2',
     studentName: 'Emily Davis',
     date: '2023-05-02',
     status: 'present',
-    class: 'Physics'
+    class: 'Database Systems'
   }
 ];
 
 export const announcementsData = [
   {
     id: '1',
-    title: 'Math Quiz Postponed',
-    content: 'Due to faculty meeting, the math quiz will be held on Wednesday instead of Tuesday.',
+    title: 'Algorithm Quiz Postponed',
+    content: 'Due to faculty meeting, the algorithms quiz will be held on Wednesday instead of Tuesday.',
     author: 'Prof. Johnson',
     date: '2023-05-01',
     urgent: true,
-    class: 'Mathematics'
+    class: 'Advanced Algorithms'
   },
   {
     id: '2',
-    title: 'Physics Lab Equipment',
-    content: 'Please bring safety goggles for tomorrow\'s physics lab session.',
+    title: 'Database Lab Setup',
+    content: 'Please ensure you have PostgreSQL installed before tomorrow\'s database lab session.',
     author: 'Dr. Smith',
     date: '2023-05-02',
     urgent: false,
-    class: 'Physics'
+    class: 'Database Systems'
   },
   {
     id: '3',
-    title: 'Field Trip Permission',
-    content: 'Submit your permission slips for the museum field trip by Friday.',
+    title: 'Tech Conference Permission',
+    content: 'Submit your permission slips for the tech conference by Friday.',
     author: 'Ms. Davis',
     date: '2023-05-03',
     urgent: true,
-    class: 'History'
+    class: 'Technical Communication'
   }
 ];
 
 export const emergencyContactsData = [
   {
     id: '1',
-    name: 'Campus Security',
+    name: 'IT Support Helpdesk',
     phone: '555-123-4567',
-    email: 'security@school.edu',
+    email: 'itsupport@csuniversity.edu',
     available: '24/7'
   },
   {
     id: '2',
-    name: 'Health Center',
+    name: 'Campus Security',
     phone: '555-234-5678',
-    email: 'health@school.edu',
-    available: '8:00 AM - 5:00 PM'
+    email: 'security@csuniversity.edu',
+    available: '24/7'
   },
   {
     id: '3',
-    name: 'Counseling Services',
+    name: 'Student Tech Services',
     phone: '555-345-6789',
-    email: 'counseling@school.edu',
-    available: '9:00 AM - 4:00 PM'
+    email: 'techhelp@csuniversity.edu',
+    available: '9:00 AM - 6:00 PM'
   },
   {
     id: '4',
-    name: 'IT Support',
+    name: 'Software Licensing',
     phone: '555-456-7890',
-    email: 'itsupport@school.edu',
+    email: 'licensing@csuniversity.edu',
     available: '8:00 AM - 6:00 PM'
   },
   {
     id: '5',
-    name: 'Administration Office',
+    name: 'Computer Science Department',
     phone: '555-567-8901',
-    email: 'admin@school.edu',
+    email: 'cs-admin@csuniversity.edu',
     available: '8:30 AM - 4:30 PM'
   }
 ];
@@ -236,80 +236,80 @@ export const emergencyContactsData = [
 export const calendarEventsData = [
   {
     id: '1',
-    title: 'Final Exams',
+    title: 'Final Programming Exams',
     date: '2023-05-15',
-    location: 'Multiple Buildings',
-    description: 'Final examinations for all subjects.'
+    location: 'Computer Science Building',
+    description: 'Final examinations for all programming courses.'
   },
   {
     id: '2',
-    title: 'Science Fair',
+    title: 'Tech Innovation Fair',
     date: '2023-05-10',
-    location: 'Science Building',
-    description: 'Annual science fair featuring student projects.'
+    location: 'Technology Innovation Center',
+    description: 'Annual innovation fair featuring student tech projects.'
   },
   {
     id: '3',
-    title: 'Parent-Teacher Conference',
+    title: 'Faculty-Student Code Review',
     date: '2023-05-20',
     location: 'Main Building',
-    description: 'Discuss student progress with teachers.'
+    description: 'Discuss project code and progress with instructors.'
   },
   {
     id: '4',
-    title: 'Sports Day',
+    title: 'Hackathon',
     date: '2023-05-25',
-    location: 'Sports Complex',
-    description: 'Annual sports day with various athletic competitions.'
+    location: 'Multimedia Complex',
+    description: 'Annual hackathon with various programming challenges.'
   },
   {
     id: '5',
-    title: 'Art Exhibition',
+    title: 'UX/UI Design Showcase',
     date: '2023-05-05',
-    location: 'Arts Center',
-    description: 'Exhibition of student artwork.'
+    location: 'Design Center',
+    description: 'Exhibition of student interface designs and prototypes.'
   }
 ];
 
 export const studyRoomsData = [
   {
     id: '1',
-    name: 'Study Room A',
-    location: 'Library, 1st Floor',
+    name: 'Collaborative Coding Lab',
+    location: 'Computer Science Building, 1st Floor',
     capacity: 4,
-    equipment: ['Whiteboard', 'Projector'],
+    equipment: ['Whiteboard', 'Dual Monitors', 'Version Control System'],
     available: true
   },
   {
     id: '2',
-    name: 'Study Room B',
-    location: 'Library, 1st Floor',
+    name: 'Database Research Room',
+    location: 'Digital Library, 1st Floor',
     capacity: 6,
-    equipment: ['Whiteboard', 'TV Screen'],
+    equipment: ['Whiteboard', 'Database Servers', 'Documentation Library'],
     available: true
   },
   {
     id: '3',
-    name: 'Study Room C',
-    location: 'Library, 2nd Floor',
+    name: 'Software Development Studio',
+    location: 'Digital Library, 2nd Floor',
     capacity: 8,
-    equipment: ['Whiteboard', 'Projector', 'Conference System'],
+    equipment: ['Whiteboard', 'Testing Environment', 'Agile Management Tools'],
     available: false
   },
   {
     id: '4',
-    name: 'Collaboration Space',
-    location: 'Science Building, 3rd Floor',
+    name: 'Project Collaboration Space',
+    location: 'Technology Innovation Center, 3rd Floor',
     capacity: 12,
-    equipment: ['Whiteboard', 'Projector', 'Computers'],
+    equipment: ['Whiteboard', 'Projector', 'Development Workstations'],
     available: true
   },
   {
     id: '5',
-    name: 'Quiet Study Area',
-    location: 'Library, 2nd Floor',
+    name: 'Quiet Coding Area',
+    location: 'Digital Library, 2nd Floor',
     capacity: 20,
-    equipment: ['Individual Desks', 'Power Outlets'],
+    equipment: ['Individual Workstations', 'Noise Cancelling Booths'],
     available: true
   }
 ];
@@ -317,37 +317,37 @@ export const studyRoomsData = [
 export const equipmentData = [
   {
     id: '1',
-    name: 'Projector HD-100',
-    type: 'Projector',
-    location: 'IT Department',
+    name: 'HTC Vive VR Headset',
+    type: 'VR/AR',
+    location: 'Multimedia Lab',
     status: 'Available'
   },
   {
     id: '2',
-    name: 'Laptop Dell XPS 13',
-    type: 'Laptop',
+    name: 'MacBook Pro M1',
+    type: 'Computer',
     location: 'IT Department',
     status: 'Available'
   },
   {
     id: '3',
-    name: 'Projector Sony VPL-FX30',
-    type: 'Projector',
-    location: 'Science Building',
+    name: 'NVIDIA RTX 4090 Workstation',
+    type: 'Graphics',
+    location: 'AI Research Lab',
     status: 'In Use'
   },
   {
     id: '4',
     name: 'iPad Pro 12.9"',
     type: 'Tablet',
-    location: 'IT Department',
+    location: 'Media Design Lab',
     status: 'Available'
   },
   {
     id: '5',
-    name: 'Surface Book 3',
-    type: 'Laptop',
-    location: 'IT Department',
+    name: 'Wacom Cintiq Pro',
+    type: 'Design',
+    location: 'Design Center',
     status: 'In Use'
   }
 ];
@@ -355,36 +355,36 @@ export const equipmentData = [
 export const libraryServicesData = [
   {
     id: '1',
-    name: 'Book Borrowing',
-    description: 'Borrow books for up to 2 weeks with student ID.',
+    name: 'E-Book & Journal Access',
+    description: 'Access to technical e-books, journals, and research papers.',
     online: true,
     inPerson: true
   },
   {
     id: '2',
-    name: 'Digital Resources',
-    description: 'Access e-books, journals, and academic databases.',
+    name: 'Software Licensing',
+    description: 'Access to university-licensed software and development tools.',
     online: true,
     inPerson: false
   },
   {
     id: '3',
-    name: 'Research Assistance',
-    description: 'Get help from librarians for research projects.',
+    name: 'Technical Research Assistance',
+    description: 'Get help from librarians for technical research projects.',
     online: true,
     inPerson: true
   },
   {
     id: '4',
-    name: 'Printing & Copying',
-    description: 'Print and copy documents at the library.',
+    name: 'Digital Assets Printing',
+    description: 'Print and copy technical documentation and project materials.',
     online: false,
     inPerson: true
   },
   {
     id: '5',
-    name: 'Inter-Library Loans',
-    description: 'Request books from other libraries.',
+    name: 'Inter-University Resource Sharing',
+    description: 'Request technical resources from partner universities.',
     online: true,
     inPerson: true
   }
@@ -393,32 +393,32 @@ export const libraryServicesData = [
 export const lectureNotesData = [
   {
     id: '1',
-    title: 'Introduction to Calculus',
-    class: 'Mathematics',
+    title: 'Introduction to Machine Learning',
+    class: 'Artificial Intelligence',
     dateUploaded: '2023-04-15',
     fileUrl: '#',
     fileType: 'PDF'
   },
   {
     id: '2',
-    title: 'Newton\'s Laws of Motion',
-    class: 'Physics',
+    title: 'Database Normalization',
+    class: 'Database Systems',
     dateUploaded: '2023-04-20',
     fileUrl: '#',
     fileType: 'PPTX'
   },
   {
     id: '3',
-    title: 'Shakespeare\'s Hamlet',
-    class: 'English Literature',
+    title: 'Software Design Patterns',
+    class: 'Software Engineering',
     dateUploaded: '2023-04-25',
     fileUrl: '#',
     fileType: 'PDF'
   },
   {
     id: '4',
-    title: 'World War II Overview',
-    class: 'History',
+    title: 'Computer Architecture Overview',
+    class: 'Computer Architecture',
     dateUploaded: '2023-04-28',
     fileUrl: '#',
     fileType: 'DOCX'
@@ -426,7 +426,7 @@ export const lectureNotesData = [
   {
     id: '5',
     title: 'Data Structures',
-    class: 'Computer Science',
+    class: 'Advanced Algorithms',
     dateUploaded: '2023-05-01',
     fileUrl: '#',
     fileType: 'PDF'
@@ -437,31 +437,31 @@ export const gradebookData = [
   {
     studentId: 'student-1',
     studentName: 'Alex Johnson',
-    subject: 'Mathematics',
+    subject: 'Advanced Algorithms',
     assignments: [
-      { name: 'Quiz 1', score: 85, maxScore: 100 },
-      { name: 'Homework 1', score: 92, maxScore: 100 },
-      { name: 'Midterm', score: 78, maxScore: 100 }
+      { name: 'Algorithm Analysis Quiz', score: 85, maxScore: 100 },
+      { name: 'Sorting Implementation', score: 92, maxScore: 100 },
+      { name: 'Midterm Exam', score: 78, maxScore: 100 }
     ]
   },
   {
     studentId: 'student-1',
     studentName: 'Alex Johnson',
-    subject: 'Physics',
+    subject: 'Database Systems',
     assignments: [
-      { name: 'Lab Report 1', score: 90, maxScore: 100 },
-      { name: 'Quiz 1', score: 75, maxScore: 100 },
-      { name: 'Midterm', score: 82, maxScore: 100 }
+      { name: 'SQL Lab Report', score: 90, maxScore: 100 },
+      { name: 'Database Design Quiz', score: 75, maxScore: 100 },
+      { name: 'Query Optimization', score: 82, maxScore: 100 }
     ]
   },
   {
     studentId: 'student-1',
     studentName: 'Alex Johnson',
-    subject: 'English Literature',
+    subject: 'Technical Communication',
     assignments: [
-      { name: 'Essay 1', score: 88, maxScore: 100 },
-      { name: 'Presentation', score: 95, maxScore: 100 },
-      { name: 'Midterm', score: 85, maxScore: 100 }
+      { name: 'Technical Documentation', score: 88, maxScore: 100 },
+      { name: 'API Presentation', score: 95, maxScore: 100 },
+      { name: 'Code Review Paper', score: 85, maxScore: 100 }
     ]
   }
 ];
@@ -469,37 +469,37 @@ export const gradebookData = [
 export const newslettersData = [
   {
     id: '1',
-    title: 'Spring Semester Newsletter',
+    title: 'Spring Semester Tech Update',
     date: '2023-03-01',
-    content: 'News and updates for the spring semester.',
+    content: 'News and updates for the spring semester computer science courses.',
     pdfUrl: '#'
   },
   {
     id: '2',
-    title: 'Science Department Update',
+    title: 'AI Research Department Update',
     date: '2023-03-15',
-    content: 'Latest news from the science department.',
+    content: 'Latest research projects from the AI department.',
     pdfUrl: '#'
   },
   {
     id: '3',
-    title: 'Sports Teams Results',
+    title: 'Hackathon Results',
     date: '2023-04-01',
-    content: 'Recent results from our school sports teams.',
+    content: 'Results from our university hackathon competition.',
     pdfUrl: '#'
   },
   {
     id: '4',
-    title: 'Arts Festival Announcement',
+    title: 'Tech Innovation Fair Announcement',
     date: '2023-04-15',
-    content: 'Information about the upcoming arts festival.',
+    content: 'Information about the upcoming tech innovation showcase.',
     pdfUrl: '#'
   },
   {
     id: '5',
-    title: 'End of Year Celebrations',
+    title: 'End of Year Projects',
     date: '2023-05-01',
-    content: 'Details about end of year events and celebrations.',
+    content: 'Details about end of year project presentations and demonstrations.',
     pdfUrl: '#'
   }
 ];
@@ -545,70 +545,70 @@ export const cafeteriaMenuData = [
 export const studentProjectsData = [
   {
     id: '1',
-    title: 'Renewable Energy Solutions',
+    title: 'AI-Powered Energy Management System',
     student: 'Alex Johnson',
-    class: 'Science',
-    thumbnail: 'https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    description: 'A project exploring solar and wind energy solutions for urban environments.'
+    class: 'Artificial Intelligence',
+    thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    description: 'A machine learning system for optimizing energy usage in smart buildings.'
   },
   {
     id: '2',
-    title: 'Analysis of Hamlet',
+    title: 'Natural Language Code Generator',
     student: 'Emily Davis',
-    class: 'English Literature',
-    thumbnail: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    description: 'An in-depth analysis of Shakespeare\'s Hamlet and its themes.'
+    class: 'Natural Language Processing',
+    thumbnail: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
+    description: 'An NLP system that converts natural language descriptions into executable code.'
   },
   {
     id: '3',
-    title: 'Mobile App for Campus Navigation',
+    title: 'Augmented Reality Campus Navigation',
     student: 'Michael Smith',
-    class: 'Computer Science',
+    class: 'Mobile Application Development',
     thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    description: 'A mobile application to help students navigate the campus.'
+    description: 'An AR mobile application to help navigate the university campus.'
   }
 ];
 
 export const classroomSuppliesData = [
   {
     id: '1',
-    name: 'Pencils',
+    name: 'Development Boards',
     requested: 50,
     donated: 20,
     teacher: 'Ms. Rebecca Smith',
-    class: 'Mathematics'
+    class: 'Embedded Systems'
   },
   {
     id: '2',
-    name: 'Notebooks',
+    name: 'Software Licenses',
     requested: 30,
     donated: 15,
     teacher: 'Dr. Smith',
-    class: 'Physics'
+    class: 'Software Engineering'
   },
   {
     id: '3',
-    name: 'Art Supplies',
+    name: 'Graphics Tablets',
     requested: 20,
     donated: 10,
     teacher: 'Ms. Johnson',
-    class: 'Art'
+    class: 'Digital Media'
   },
   {
     id: '4',
-    name: 'Science Lab Materials',
+    name: 'Chemistry Lab Materials',
     requested: 10,
     donated: 5,
     teacher: 'Dr. Clark',
-    class: 'Biology'
+    class: 'Computer Hardware'
   },
   {
     id: '5',
-    name: 'Sports Equipment',
+    name: 'VR Headsets',
     requested: 15,
     donated: 7,
     teacher: 'Mr. Brown',
-    class: 'Physical Education'
+    class: 'Virtual Reality Development'
   }
 ];
 
@@ -616,7 +616,7 @@ export const serviceIssuesData = [
   {
     id: '1',
     title: 'Wi-Fi Connectivity Issues',
-    location: 'Library',
+    location: 'Digital Library',
     status: 'Open',
     reporter: 'Alex Johnson',
     date: '2023-05-01',
@@ -624,8 +624,8 @@ export const serviceIssuesData = [
   },
   {
     id: '2',
-    title: 'Broken Desk',
-    location: 'Building A, Room 102',
+    title: 'Projector Not Working',
+    location: 'Computer Science Building, Lab 102',
     status: 'In Progress',
     reporter: 'Emily Davis',
     date: '2023-04-28',
@@ -633,8 +633,8 @@ export const serviceIssuesData = [
   },
   {
     id: '3',
-    title: 'Projector Not Working',
-    location: 'Building B, Room 210',
+    title: 'Software License Expired',
+    location: 'Technology Innovation Center, Room 210',
     status: 'Resolved',
     reporter: 'Michael Smith',
     date: '2023-04-25',
@@ -642,16 +642,16 @@ export const serviceIssuesData = [
   },
   {
     id: '4',
-    title: 'Bathroom Needs Cleaning',
-    location: 'Main Building, 1st Floor',
+    title: 'Server Room Temperature Alert',
+    location: 'Main Building, Data Center',
     status: 'Open',
     reporter: 'Sarah Wilson',
     date: '2023-05-02',
-    priority: 'Medium'
+    priority: 'Critical'
   },
   {
     id: '5',
-    title: 'Vending Machine Out of Order',
+    title: 'Printer Out of Service',
     location: 'Student Center',
     status: 'In Progress',
     reporter: 'David Brown',

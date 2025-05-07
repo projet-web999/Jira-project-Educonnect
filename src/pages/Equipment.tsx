@@ -10,87 +10,87 @@ import { useState } from "react";
 const Equipment = () => {
   const [searchTerm, setSearchTerm] = useState("");
   
-  const labEquipment = [
+  const techEquipment = [
     {
       id: 1,
-      name: "Microscope",
-      type: "Science",
-      location: "Biology Lab",
+      name: "VR Development Kit",
+      type: "Virtual Reality",
+      location: "Interactive Media Lab",
       status: "Available",
-      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Microscope"
+      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=VR+Kit"
     },
     {
       id: 2,
-      name: "Digital Camera",
+      name: "DSLR Camera",
       type: "Media",
-      location: "AV Room",
+      location: "Multimedia Studio",
       status: "Checked Out",
       dueDate: "May 15, 2025",
       image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Camera"
     },
     {
       id: 3,
-      name: "Telescope",
-      type: "Science",
-      location: "Physics Lab",
+      name: "Raspberry Pi Kit",
+      type: "IoT",
+      location: "Embedded Systems Lab",
       status: "Available",
-      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Telescope"
+      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Pi+Kit"
     },
     {
       id: 4,
-      name: "Laptop",
-      type: "Technology",
-      location: "Computer Lab",
+      name: "MacBook Pro",
+      type: "Computer",
+      location: "Mobile Development Lab",
       status: "Reserved",
-      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Laptop"
+      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=MacBook"
     }
   ];
   
-  const sportEquipment = [
+  const hardwareEquipment = [
     {
       id: 5,
-      name: "Basketball Set",
-      type: "Sports",
-      location: "Sports Storage",
+      name: "NVIDIA GPU Server",
+      type: "Hardware",
+      location: "AI Research Lab",
       status: "Available",
-      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Basketball"
+      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=GPU"
     },
     {
       id: 6,
-      name: "Soccer Balls",
-      type: "Sports",
-      location: "Field Storage",
+      name: "Arduino Kits",
+      type: "Hardware",
+      location: "Robotics Lab",
       status: "Available",
-      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Soccer"
+      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Arduino"
     },
     {
       id: 7,
-      name: "Tennis Rackets",
-      type: "Sports",
-      location: "Tennis Court",
+      name: "Network Testing Kit",
+      type: "Hardware",
+      location: "Networking Lab",
       status: "Checked Out",
       dueDate: "May 10, 2025",
-      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Tennis"
+      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Network"
     }
   ];
   
-  const musicEquipment = [
+  const audiovisualEquipment = [
     {
       id: 8,
-      name: "Acoustic Guitar",
-      type: "Music",
-      location: "Music Room",
+      name: "Audio Recording Kit",
+      type: "Multimedia",
+      location: "Sound Studio",
       status: "Available",
-      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Guitar"
+      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Audio"
     },
     {
       id: 9,
-      name: "Electric Keyboard",
-      type: "Music",
-      location: "Music Lab",
+      name: "Motion Capture System",
+      type: "Multimedia",
+      location: "Animation Lab",
       status: "Checked Out",
       dueDate: "May 12, 2025",
-      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=Keyboard"
+      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=MoCap"
     }
   ];
   
@@ -107,9 +107,9 @@ const Equipment = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">School Equipment</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Tech Equipment</h1>
         <p className="text-muted-foreground mt-2">
-          Browse and check out available equipment for your classes and activities
+          Browse and check out available equipment for your programming and multimedia projects
         </p>
       </div>
       
@@ -123,32 +123,32 @@ const Equipment = () => {
         />
       </div>
       
-      <Tabs defaultValue="lab" className="w-full">
+      <Tabs defaultValue="tech" className="w-full">
         <TabsList className="grid w-full sm:w-auto grid-cols-3">
-          <TabsTrigger value="lab">Lab Equipment</TabsTrigger>
-          <TabsTrigger value="sports">Sports Equipment</TabsTrigger>
-          <TabsTrigger value="music">Music Equipment</TabsTrigger>
+          <TabsTrigger value="tech">Tech Equipment</TabsTrigger>
+          <TabsTrigger value="hardware">Hardware</TabsTrigger>
+          <TabsTrigger value="av">Audiovisual</TabsTrigger>
         </TabsList>
         
-        <TabsContent value="lab" className="mt-6">
+        <TabsContent value="tech" className="mt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filterEquipment(labEquipment).map(item => (
+            {filterEquipment(techEquipment).map(item => (
               <EquipmentCard key={item.id} item={item} />
             ))}
           </div>
         </TabsContent>
         
-        <TabsContent value="sports" className="mt-6">
+        <TabsContent value="hardware" className="mt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filterEquipment(sportEquipment).map(item => (
+            {filterEquipment(hardwareEquipment).map(item => (
               <EquipmentCard key={item.id} item={item} />
             ))}
           </div>
         </TabsContent>
         
-        <TabsContent value="music" className="mt-6">
+        <TabsContent value="av" className="mt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filterEquipment(musicEquipment).map(item => (
+            {filterEquipment(audiovisualEquipment).map(item => (
               <EquipmentCard key={item.id} item={item} />
             ))}
           </div>

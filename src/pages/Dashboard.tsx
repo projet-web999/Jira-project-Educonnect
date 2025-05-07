@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
-import { Calendar, BookOpen, MapPin, User, Bell, FileText, School, MessageSquare, Menu, Clock } from 'lucide-react';
+import { Calendar, BookOpen, MapPin, User, Bell, FileText, School, MessageSquare, Menu, Clock, Code, Monitor, Laptop, Database, Lock, Server } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { toast } from '@/components/ui/use-toast';
@@ -93,8 +93,8 @@ const Dashboard = () => {
     const hasShownWelcome = localStorage.getItem('hasShownWelcome');
     if (!hasShownWelcome) {
       toast({
-        title: "Welcome to EduConnect!",
-        description: "Your educational platform for seamless learning and communication.",
+        title: "Welcome to CS Connect!",
+        description: "Your computer science learning platform for seamless collaboration and innovation.",
       });
       localStorage.setItem('hasShownWelcome', 'true');
     }
@@ -104,7 +104,7 @@ const Dashboard = () => {
   const commonCards = [
     {
       title: "Campus Map",
-      description: "Find buildings and navigate around the campus easily.",
+      description: "Find labs, classrooms and tech facilities around the campus easily.",
       icon: <MapPin className="h-5 w-5 text-blue-500" />,
       linkText: "Open Map",
       linkPath: "/map",
@@ -112,7 +112,7 @@ const Dashboard = () => {
     },
     {
       title: "Emergency Contacts",
-      description: "Access important campus emergency contacts.",
+      description: "Access important campus IT support and emergency contacts.",
       icon: <Bell className="h-5 w-5 text-red-500" />,
       linkText: "View Contacts",
       linkPath: "/emergency",
@@ -120,8 +120,8 @@ const Dashboard = () => {
       color: 'red' as const
     },
     {
-      title: "Event Calendar",
-      description: "Browse upcoming school events and activities.",
+      title: "Tech Events",
+      description: "Browse upcoming hackathons, workshops and tech talks.",
       icon: <Calendar className="h-5 w-5 text-purple-500" />,
       linkText: "View Calendar",
       linkPath: "/calendar",
@@ -142,7 +142,7 @@ const Dashboard = () => {
   const studentCards = [
     {
       title: "Class Schedule",
-      description: "View your daily classes with room locations and timings.",
+      description: "View your programming classes with lab locations and timings.",
       icon: <Calendar className="h-5 w-5 text-blue-500" />,
       linkText: "View Schedule",
       linkPath: "/schedule",
@@ -150,41 +150,41 @@ const Dashboard = () => {
       color: 'blue' as const
     },
     {
-      title: "Study Rooms",
-      description: "Book group study rooms and collaborative spaces.",
-      icon: <BookOpen className="h-5 w-5 text-amber-500" />,
-      linkText: "Book Room",
+      title: "Lab Reservations",
+      description: "Book computer labs and collaborative coding spaces.",
+      icon: <Laptop className="h-5 w-5 text-amber-500" />,
+      linkText: "Reserve Lab",
       linkPath: "/study-rooms",
       color: 'amber' as const
     },
     {
       title: "QR Check-in",
-      description: "Scan QR codes for quick classroom attendance.",
+      description: "Scan QR codes for quick lab and classroom attendance.",
       icon: <School className="h-5 w-5 text-green-500" />,
       linkText: "Scan QR",
       linkPath: "/qr-checkin",
       color: 'green' as const
     },
     {
-      title: "Library Services",
-      description: "Access digital resources and library information.",
+      title: "Digital Resources",
+      description: "Access programming e-books, documentation and learning materials.",
       icon: <BookOpen className="h-5 w-5 text-purple-500" />,
       linkText: "Access Library",
       linkPath: "/library",
       color: 'purple' as const
     },
     {
-      title: "My Projects",
-      description: "Showcase and manage your academic projects.",
-      icon: <FileText className="h-5 w-5 text-blue-500" />,
+      title: "Coding Projects",
+      description: "Showcase and manage your software development projects.",
+      icon: <Code className="h-5 w-5 text-blue-500" />,
       linkText: "View Projects",
       linkPath: "/projects",
       badge: "2 Due Soon",
       color: 'blue' as const
     },
     {
-      title: "Service Issues",
-      description: "Report problems or give feedback on campus services.",
+      title: "IT Help Desk",
+      description: "Report tech problems or request software assistance.",
       icon: <MessageSquare className="h-5 w-5 text-red-500" />,
       linkText: "Report Issue",
       linkPath: "/service-issues",
@@ -195,7 +195,7 @@ const Dashboard = () => {
   const teacherCards = [
     {
       title: "Attendance",
-      description: "Take and manage digital attendance for your classes.",
+      description: "Take and manage digital attendance for your programming classes.",
       icon: <FileText className="h-5 w-5 text-blue-500" />,
       linkText: "Take Attendance",
       linkPath: "/attendance",
@@ -204,31 +204,31 @@ const Dashboard = () => {
     },
     {
       title: "Announcements",
-      description: "Post urgent class announcements and updates.",
+      description: "Post urgent class announcements and project updates.",
       icon: <Bell className="h-5 w-5 text-amber-500" />,
       linkText: "Post Announcement",
       linkPath: "/announcements",
       color: 'amber' as const
     },
     {
-      title: "Resources",
-      description: "Share lecture slides and learning materials.",
-      icon: <BookOpen className="h-5 w-5 text-green-500" />,
+      title: "Learning Materials",
+      description: "Share lecture slides, code samples and tutorials.",
+      icon: <Database className="h-5 w-5 text-green-500" />,
       linkText: "Manage Resources",
       linkPath: "/resources",
       color: 'green' as const
     },
     {
-      title: "Equipment",
-      description: "Reserve projectors, laptops, and other equipment.",
-      icon: <School className="h-5 w-5 text-purple-500" />,
+      title: "Tech Equipment",
+      description: "Reserve projectors, computer labs, and specialized hardware.",
+      icon: <Monitor className="h-5 w-5 text-purple-500" />,
       linkText: "Reserve Equipment",
       linkPath: "/equipment",
       color: 'purple' as const
     },
     {
       title: "Gradebook",
-      description: "Manage student grades and assessment records.",
+      description: "Manage student grades and code assessment records.",
       icon: <FileText className="h-5 w-5 text-blue-500" />,
       linkText: "Open Gradebook",
       linkPath: "/gradebook",
@@ -236,9 +236,9 @@ const Dashboard = () => {
       color: 'blue' as const
     },
     {
-      title: "Classroom Supplies",
-      description: "Track donations and manage classroom supplies.",
-      icon: <User className="h-5 w-5 text-amber-500" />,
+      title: "Lab Supplies",
+      description: "Track and manage computer lab equipment and software licenses.",
+      icon: <Server className="h-5 w-5 text-amber-500" />,
       linkText: "Manage Supplies",
       linkPath: "/supplies",
       color: 'amber' as const
@@ -248,7 +248,7 @@ const Dashboard = () => {
   const parentCards = [
     {
       title: "Attendance Records",
-      description: "Check your child's attendance records.",
+      description: "Check your student's programming class attendance records.",
       icon: <FileText className="h-5 w-5 text-blue-500" />,
       linkText: "View Attendance",
       linkPath: "/attendance-records",
@@ -257,7 +257,7 @@ const Dashboard = () => {
     },
     {
       title: "Progress Reports",
-      description: "View automated progress reports and grades.",
+      description: "View automated coding progress reports and grades.",
       icon: <FileText className="h-5 w-5 text-green-500" />,
       linkText: "View Reports",
       linkPath: "/progress",
@@ -265,8 +265,8 @@ const Dashboard = () => {
       color: 'green' as const
     },
     {
-      title: "Newsletters",
-      description: "Access archived school newsletters.",
+      title: "Tech Newsletters",
+      description: "Access archived university computer science newsletters.",
       icon: <BookOpen className="h-5 w-5 text-amber-500" />,
       linkText: "Read Newsletters",
       linkPath: "/newsletters",
@@ -274,7 +274,7 @@ const Dashboard = () => {
     },
     {
       title: "Video Conferences",
-      description: "Schedule video conferences with teachers.",
+      description: "Schedule video conferences with programming instructors.",
       icon: <User className="h-5 w-5 text-purple-500" />,
       linkText: "Schedule Meeting",
       linkPath: "/conference",
@@ -328,7 +328,7 @@ const Dashboard = () => {
             <p className="text-blue-600 mt-1">
               {user 
                 ? `Welcome back, ${user.name}!` 
-                : 'Welcome to EduConnect! Please log in to access personalized features.'}
+                : 'Welcome to CS Connect! Please log in to access personalized features.'}
             </p>
           </div>
           
