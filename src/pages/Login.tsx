@@ -38,7 +38,7 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md shadow-lg border-t-4 border-t-edu-primary">
         <CardHeader className="space-y-1 text-center">
           <div className="flex justify-center mb-2">
             <School className="h-12 w-12 text-edu-primary" />
@@ -54,7 +54,7 @@ const Login = () => {
               <Label htmlFor="role">I am a</Label>
               <Select 
                 value={userRole} 
-                onValueChange={(value) => setUserRole(value as 'student' | 'teacher' | 'parent' | 'guest')}
+                onValueChange={(value) => setUserRole(value as 'student' | 'teacher' | 'parent')}
               >
                 <SelectTrigger>
                   <SelectValue placeholder="Select your role" />
@@ -63,7 +63,6 @@ const Login = () => {
                   <SelectItem value="student">Student</SelectItem>
                   <SelectItem value="teacher">Teacher</SelectItem>
                   <SelectItem value="parent">Parent</SelectItem>
-                  <SelectItem value="guest">Guest</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -77,6 +76,7 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                className="bg-white"
               />
             </div>
             
@@ -94,6 +94,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                className="bg-white"
               />
             </div>
           </CardContent>

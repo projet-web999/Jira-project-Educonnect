@@ -2,7 +2,7 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { toast } from "@/components/ui/use-toast";
 
-type UserRole = 'student' | 'teacher' | 'parent' | 'guest';
+type UserRole = 'student' | 'teacher' | 'parent';
 
 interface User {
   id: string;
@@ -45,18 +45,12 @@ const DEMO_USERS: Record<UserRole, User> = {
     email: 'daniel@example.com',
     role: 'parent',
     avatar: 'https://i.pravatar.cc/150?u=parent'
-  },
-  guest: {
-    id: 'guest-1',
-    name: 'Guest User',
-    email: 'guest@example.com',
-    role: 'guest'
   }
 };
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [userRole, setUserRole] = useState<UserRole>('guest');
+  const [userRole, setUserRole] = useState<UserRole>('student');
 
   const login = async (email: string, password: string) => {
     // This would be a real auth call in a production environment

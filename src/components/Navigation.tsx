@@ -34,14 +34,20 @@ const Navigation = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  // Common links for all user roles
+  const commonLinks = [
+    { name: 'Campus Map', path: '/map', icon: <MapPin className="h-5 w-5" /> },
+    { name: 'Emergency Contacts', path: '/emergency', icon: <Bell className="h-5 w-5" /> },
+    { name: 'Calendar', path: '/calendar', icon: <Calendar className="h-5 w-5" /> },
+    { name: 'Cafeteria Menu', path: '/cafeteria-menu', icon: <Menu className="h-5 w-5" /> },
+  ];
+
   const studentLinks = [
     { name: 'Schedule', path: '/schedule', icon: <Calendar className="h-5 w-5" /> },
-    { name: 'Campus Map', path: '/map', icon: <MapPin className="h-5 w-5" /> },
     { name: 'Study Rooms', path: '/study-rooms', icon: <BookOpen className="h-5 w-5" /> },
     { name: 'Library', path: '/library', icon: <School className="h-5 w-5" /> },
     { name: 'Projects', path: '/projects', icon: <FileText className="h-5 w-5" /> },
     { name: 'Service Issues', path: '/service-issues', icon: <MessageSquare className="h-5 w-5" /> },
-    { name: 'Cafeteria Menu', path: '/cafeteria-menu', icon: <Menu className="h-5 w-5" /> }
   ];
 
   const teacherLinks = [
@@ -49,35 +55,35 @@ const Navigation = () => {
     { name: 'Announcements', path: '/announcements', icon: <Bell className="h-5 w-5" /> },
     { name: 'Resources', path: '/resources', icon: <BookOpen className="h-5 w-5" /> },
     { name: 'Gradebook', path: '/gradebook', icon: <School className="h-5 w-5" /> },
-    { name: 'Supplies', path: '/supplies', icon: <Menu className="h-5 w-5" /> }
+    { name: 'Supplies', path: '/supplies', icon: <Menu className="h-5 w-5" /> },
   ];
 
   const parentLinks = [
     { name: 'Attendance Records', path: '/attendance-records', icon: <FileText className="h-5 w-5" /> },
-    { name: 'Emergency Contacts', path: '/emergency', icon: <Bell className="h-5 w-5" /> },
     { name: 'Progress Reports', path: '/progress', icon: <BookOpen className="h-5 w-5" /> },
     { name: 'Newsletters', path: '/newsletters', icon: <MessageSquare className="h-5 w-5" /> },
-    { name: 'Conference', path: '/conference', icon: <User className="h-5 w-5" /> }
+    { name: 'Conference', path: '/conference', icon: <User className="h-5 w-5" /> },
   ];
 
-  const guestLinks = [
-    { name: 'Campus Map', path: '/map', icon: <MapPin className="h-5 w-5" /> },
-    { name: 'Emergency Contacts', path: '/emergency', icon: <Bell className="h-5 w-5" /> },
-    { name: 'Calendar', path: '/calendar', icon: <Calendar className="h-5 w-5" /> },
-    { name: 'Cafeteria Menu', path: '/cafeteria-menu', icon: <Menu className="h-5 w-5" /> }
-  ];
-
+  // Get role-specific links and combine with common links
   const getLinksByRole = () => {
+    let roleSpecificLinks;
+    
     switch (userRole) {
       case 'student':
-        return studentLinks;
+        roleSpecificLinks = studentLinks;
+        break;
       case 'teacher':
-        return teacherLinks;
+        roleSpecificLinks = teacherLinks;
+        break;
       case 'parent':
-        return parentLinks;
+        roleSpecificLinks = parentLinks;
+        break;
       default:
-        return guestLinks;
+        roleSpecificLinks = [];
     }
+    
+    return [...roleSpecificLinks, ...commonLinks];
   };
 
   const links = getLinksByRole();
