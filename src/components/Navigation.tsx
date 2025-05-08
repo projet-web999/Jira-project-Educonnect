@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -14,7 +13,8 @@ import {
   LogOut,
   Settings,
   ChevronRight,
-  X
+  X,
+  BookIcon
 } from "lucide-react";
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
@@ -202,7 +202,7 @@ const Navigation = () => {
                 onClick={toggleSidebar}
               >
                 <div className="bg-blue-100 rounded-md p-1.5">
-                  <School className="h-4 w-4 text-blue-700" />
+                  <BookIcon className="h-4 w-4 text-blue-700" />
                 </div>
                 <span className="ml-3 font-medium">Dashboard</span>
               </Link>
@@ -298,7 +298,7 @@ const Navigation = () => {
                   }`}
               >
                 <div className="bg-blue-100 rounded-md p-1.5">
-                  <School className="h-4 w-4 text-blue-700" />
+                  <BookIcon className="h-4 w-4 text-blue-700" />
                 </div>
                 <span className="ml-3 font-medium">Dashboard</span>
               </Link>
