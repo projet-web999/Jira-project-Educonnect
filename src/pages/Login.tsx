@@ -62,17 +62,25 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-blue-50 to-indigo-100 p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 relative" 
+         style={{backgroundImage: `url('/lovable-uploads/068868b0-0f5a-4fb5-bbd9-b1db16fa272d.png')`}}>
+      {/* Dark overlay with blur effect */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      
+      <div className="w-full max-w-md z-10">
         <div className="text-center mb-8">
           <div className="inline-block p-3 rounded-full bg-white shadow-md mb-4">
-            <School className="h-12 w-12 text-edu-primary" />
+            <img 
+              src="/lovable-uploads/92d438fd-cd87-4453-99be-ddda6a864969.png" 
+              alt="EduConnect Logo"
+              className="h-12 w-12" 
+            />
           </div>
-          <h1 className="text-3xl font-bold text-gray-800">EduConnect</h1>
-          <p className="text-gray-600 mt-2">Your Educational Portal</p>
+          <h1 className="text-3xl font-bold text-white">EduConnect</h1>
+          <p className="text-gray-200 mt-2">Your Educational Portal</p>
         </div>
         
-        <Card className="w-full shadow-xl border-t-4 border-t-edu-primary animate-fade-in">
+        <Card className="w-full shadow-xl border-t-4 border-t-edu-primary animate-fade-in bg-white/95 backdrop-blur-md">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold text-center">Sign In</CardTitle>
             <CardDescription className="text-center">
