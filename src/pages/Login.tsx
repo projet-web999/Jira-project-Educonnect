@@ -65,7 +65,7 @@ const Login = () => {
     <div className="min-h-screen bg-cover bg-center flex items-center justify-center p-4 relative" 
          style={{backgroundImage: `url('/lovable-uploads/068868b0-0f5a-4fb5-bbd9-b1db16fa272d.png')`}}>
       {/* Dark overlay with blur effect */}
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-black/50 "></div>
       
       <div className="w-full max-w-md z-10">
         <div className="text-center mb-8">
