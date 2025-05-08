@@ -5,9 +5,17 @@ import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Bell, Calendar as CalendarIcon, Clock, MapPin } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Calendar = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
+  const { toast } = useToast();
   
   const events = [
     {
@@ -27,14 +35,6 @@ const Calendar = () => {
       description: "Physics lab experiment on motion and gravity",
     },
     {
-      id: 3,
-      title: "Basketball Practice",
-      date: new Date(2025, 4, 9, 16, 0),
-      location: "Gymnasium",
-      category: "Sports",
-      description: "Regular team practice and drills",
-    },
-    {
       id: 4,
       title: "Parent-Teacher Meeting",
       date: new Date(2025, 4, 10, 18, 0),
@@ -51,6 +51,36 @@ const Calendar = () => {
       description: "Student art showcase and exhibition",
     }
   ];
+  
+  // Notifications data
+  const notifications = [
+    {
+      id: 1,
+      title: "Math Quiz Tomorrow",
+      description: "Reminder: Math quiz scheduled for tomorrow at 10:00 AM",
+      time: "5 minutes ago"
+    },
+    {
+      id: 2,
+      title: "Science Lab Materials",
+      description: "Please bring your lab manual for today's science lab",
+      time: "2 hours ago"
+    },
+    {
+      id: 3,
+      title: "Parent-Teacher Meeting",
+      description: "Your parent-teacher meeting has been scheduled for May 10th",
+      time: "Yesterday"
+    }
+  ];
+  
+  // Function to handle marking a notification as read
+  const markAsRead = (id: number) => {
+    toast({
+      title: "Notification marked as read",
+      description: `Notification #${id} has been marked as read`,
+    });
+  };
   
   // Filter events for the selected date
   const selectedDateEvents = events.filter(
@@ -86,8 +116,6 @@ const Calendar = () => {
     switch(category) {
       case "Academic":
         return "bg-blue-100 text-blue-800 border-blue-200";
-      case "Sports":
-        return "bg-green-100 text-green-800 border-green-200";
       case "Meeting":
         return "bg-purple-100 text-purple-800 border-purple-200";
       case "Event":
@@ -103,11 +131,42 @@ const Calendar = () => {
   
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">School Calendar</h1>
-        <p className="text-muted-foreground mt-2">
-          View and manage your academic and extracurricular events
-        </p>
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">School Calendar</h1>
+          <p className="text-muted-foreground mt-2">
+            View and manage your academic and extracurricular events
+          </p>
+        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" size="icon" className="relative">
+              <Bell className="h-4 w-4" />
+              <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 text-xs text-white flex items-center justify-center">
+                {notifications.length}
+              </span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-80" align="end">
+            <div className="p-2 font-medium border-b">Notifications</div>
+            <div className="max-h-80 overflow-auto">
+              {notifications.map((notification) => (
+                <DropdownMenuItem key={notification.id} className="p-0">
+                  <div className="p-3 w-full border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onClick={() => markAsRead(notification.id)}>
+                    <div className="font-medium">{notification.title}</div>
+                    <div className="text-sm text-gray-500 mt-1">{notification.description}</div>
+                    <div className="text-xs text-gray-400 mt-1">{notification.time}</div>
+                  </div>
+                </DropdownMenuItem>
+              ))}
+            </div>
+            <div className="p-2 text-center border-t">
+              <Button variant="ghost" size="sm" className="w-full">
+                Mark all as read
+              </Button>
+            </div>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
