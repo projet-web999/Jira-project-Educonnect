@@ -10,7 +10,6 @@ import {
   MessageSquare,
   Menu,
   Search,
-  School,
   FileText,
   LogOut,
   Settings,
@@ -50,7 +49,7 @@ const Navigation = () => {
   const studentLinks = [
     { name: 'Schedule', path: '/schedule', icon: <Calendar className="h-5 w-5" /> },
     { name: 'Study Rooms', path: '/study-rooms', icon: <BookOpen className="h-5 w-5" /> },
-    { name: 'Library', path: '/library', icon: <School className="h-5 w-5" /> },
+    { name: 'Library', path: '/library', icon: <BookOpen className="h-5 w-5" /> },
     { name: 'Projects', path: '/projects', icon: <FileText className="h-5 w-5" /> },
     { name: 'Service Issues', path: '/service-issues', icon: <MessageSquare className="h-5 w-5" /> },
   ];
@@ -59,7 +58,7 @@ const Navigation = () => {
     { name: 'Attendance', path: '/attendance', icon: <FileText className="h-5 w-5" /> },
     { name: 'Announcements', path: '/announcements', icon: <Bell className="h-5 w-5" /> },
     { name: 'Resources', path: '/resources', icon: <BookOpen className="h-5 w-5" /> },
-    { name: 'Gradebook', path: '/gradebook', icon: <School className="h-5 w-5" /> },
+    { name: 'Gradebook', path: '/gradebook', icon: <Calendar className="h-5 w-5" /> },
     { name: 'Supplies', path: '/supplies', icon: <Menu className="h-5 w-5" /> },
   ];
 
@@ -109,7 +108,11 @@ const Navigation = () => {
           <Menu className="h-6 w-6" />
         </button>
         <Link to="/" className="flex items-center">
-          <School className="h-7 w-7 text-edu-primary mr-2" />
+          <img 
+            src="/lovable-uploads/92d438fd-cd87-4453-99be-ddda6a864969.png" 
+            alt="EduConnect Logo" 
+            className="h-8 w-8 mr-2" 
+          />
           <span className="font-semibold text-xl">EduConnect</span>
         </Link>
         {isAuthenticated ? (
@@ -160,7 +163,11 @@ const Navigation = () => {
       <div className={`fixed top-0 left-0 z-50 h-full w-72 bg-white shadow-lg transform transition-transform duration-300 lg:hidden ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} overflow-y-auto`}>
         <div className="p-4 border-b flex justify-between items-center">
           <Link to="/" className="flex items-center" onClick={toggleSidebar}>
-            <School className="h-6 w-6 text-edu-primary mr-2" />
+            <img 
+              src="/lovable-uploads/92d438fd-cd87-4453-99be-ddda6a864969.png" 
+              alt="EduConnect Logo" 
+              className="h-7 w-7 mr-2" 
+            />
             <span className="font-semibold text-lg">EduConnect</span>
           </Link>
           <button onClick={toggleSidebar} className="text-gray-600 hover:text-gray-900">
@@ -255,7 +262,11 @@ const Navigation = () => {
       <div className="hidden lg:block fixed left-0 top-0 w-64 h-full bg-white border-r shadow-sm z-20">
         {/* App Logo */}
         <div className="p-4 border-b flex items-center">
-          <School className="h-7 w-7 text-edu-primary mr-2" />
+          <img 
+            src="/lovable-uploads/92d438fd-cd87-4453-99be-ddda6a864969.png" 
+            alt="EduConnect Logo" 
+            className="h-8 w-8 mr-2" 
+          />
           <Link to="/" className="font-semibold text-lg">EduConnect</Link>
         </div>
         

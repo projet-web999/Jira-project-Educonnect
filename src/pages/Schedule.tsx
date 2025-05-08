@@ -6,9 +6,47 @@ import { MapPin, Clock, User, Calendar, Bell, BookOpen } from 'lucide-react';
 import { scheduleData } from '@/data/mockData';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { useToast } from "@/hooks/use-toast";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Schedule = () => {
   const [currentDay, setCurrentDay] = useState('Monday');
+  const { toast } = useToast();
+  
+  // Notifications data
+  const notifications = [
+    {
+      id: 1,
+      title: "Math Quiz Tomorrow",
+      description: "Reminder: Math quiz scheduled for tomorrow at 10:00 AM",
+      time: "5 minutes ago"
+    },
+    {
+      id: 2,
+      title: "Science Lab Materials",
+      description: "Please bring your lab manual for today's science lab",
+      time: "2 hours ago"
+    },
+    {
+      id: 3,
+      title: "Physics Test Results",
+      description: "Physics test results are now available in your profile",
+      time: "Yesterday"
+    }
+  ];
+  
+  // Function to handle marking a notification as read
+  const markAsRead = (id: number) => {
+    toast({
+      title: "Notification marked as read",
+      description: `Notification #${id} has been marked as read`,
+    });
+  };
   
   const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
   
@@ -31,7 +69,6 @@ const Schedule = () => {
       'Mathematics': 'border-blue-500',
       'Physics': 'border-purple-500',
       'English': 'border-green-500',
-      'History': 'border-amber-500',
       'Chemistry': 'border-red-500',
       'Biology': 'border-emerald-500',
       'Computer Science': 'border-cyan-500'
@@ -43,11 +80,44 @@ const Schedule = () => {
   return (
     <>
       <div className="mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-sm border border-blue-100">
-        <h1 className="text-3xl font-bold text-blue-800">Class Schedule</h1>
-        <p className="text-blue-600 mt-1 flex items-center">
-          <Calendar className="h-4 w-4 mr-2" />
-          Your personalized weekly schedule with locations and times
-        </p>
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-blue-800">Class Schedule</h1>
+            <p className="text-blue-600 mt-1 flex items-center">
+              <Calendar className="h-4 w-4 mr-2" />
+              Your personalized weekly schedule with locations and times
+            </p>
+          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon" className="relative">
+                <Bell className="h-4 w-4" />
+                <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 text-xs text-white flex items-center justify-center">
+                  {notifications.length}
+                </span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-80" align="end">
+              <div className="p-2 font-medium border-b">Notifications</div>
+              <div className="max-h-80 overflow-auto">
+                {notifications.map((notification) => (
+                  <DropdownMenuItem key={notification.id} className="p-0">
+                    <div className="p-3 w-full border-b border-gray-100 hover:bg-gray-50 cursor-pointer" onClick={() => markAsRead(notification.id)}>
+                      <div className="font-medium">{notification.title}</div>
+                      <div className="text-sm text-gray-500 mt-1">{notification.description}</div>
+                      <div className="text-xs text-gray-400 mt-1">{notification.time}</div>
+                    </div>
+                  </DropdownMenuItem>
+                ))}
+              </div>
+              <div className="p-2 text-center border-t">
+                <Button variant="ghost" size="sm" className="w-full">
+                  Mark all as read
+                </Button>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
 
       <Card className="mb-6 overflow-hidden border-t-4 border-t-blue-500 shadow-md">
