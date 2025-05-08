@@ -62,21 +62,6 @@ const Emergency = () => {
           </Card>
         ))}
       </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Campus Emergency Map</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="aspect-video bg-gray-100 rounded-md flex items-center justify-center">
-            <p className="text-gray-500">Campus evacuation routes and emergency equipment locations</p>
-          </div>
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Button variant="outline" className="w-full">Download Campus Map</Button>
-            <Button variant="outline" className="w-full">View Evacuation Routes</Button>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 };
