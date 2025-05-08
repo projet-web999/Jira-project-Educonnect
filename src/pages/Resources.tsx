@@ -1,241 +1,264 @@
+import React, { useState } from "react";
+import { 
+  Card, 
+  CardContent, 
+  CardDescription, 
+  CardFooter, 
+  CardHeader, 
+  CardTitle 
+} from "@/components/ui/card";
+import { 
+  Button 
+} from "@/components/ui/button";
+import { 
+  Input 
+} from "@/components/ui/input";
+import { 
+  Select, 
+  SelectContent, 
+  SelectItem, 
+  SelectTrigger, 
+  SelectValue 
+} from "@/components/ui/select";
+import { 
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@/components/ui/form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { Upload, FileText } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Badge } from "@/components/ui/badge";
-import { FileText, Download, Search, Book, Video, Globe } from "lucide-react";
-import { useState } from "react";
+const resourceSchema = z.object({
+  title: z.string().min(3, {
+    message: "Title must be at least 3 characters.",
+  }),
+  description: z.string().min(10, {
+    message: "Description must be at least 10 characters.",
+  }),
+  subject: z.string().min(1, {
+    message: "Please select a subject.",
+  }),
+  file: z.instanceof(File).optional(),
+});
+
+interface ResourceItem {
+  id: string;
+  title: string;
+  description: string;
+  subject: string;
+  fileName: string;
+  date: string;
+}
 
 const Resources = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  
-  const documentResources = [
+  const { toast } = useToast();
+  const [uploadedResources, setUploadedResources] = useState<ResourceItem[]>([
     {
-      id: 1,
-      title: "Math Formula Sheet",
-      description: "Comprehensive list of mathematical formulas for algebra, geometry, and calculus",
+      id: "1",
+      title: "Math Formulas",
+      description: "Essential formulas for algebra and calculus",
       subject: "Mathematics",
-      type: "PDF",
-      size: "1.2 MB",
-      uploadedDate: "Apr 10, 2025"
+      fileName: "math_formulas.pdf",
+      date: "2025-05-07",
     },
     {
-      id: 2,
-      title: "Literary Analysis Guide",
-      description: "Step-by-step guide for analyzing literature and writing essays",
-      subject: "English",
-      type: "DOCX",
-      size: "850 KB",
-      uploadedDate: "Apr 15, 2025"
+      id: "2",
+      title: "Science Experiment",
+      description: "Lab experiment instructions for chemistry class",
+      subject: "Science",
+      fileName: "chemistry_lab.pdf",
+      date: "2025-05-06",
     },
-    {
-      id: 3,
-      title: "Periodic Table Reference",
-      description: "Detailed periodic table with element properties and information",
-      subject: "Chemistry",
-      type: "PDF",
-      size: "2.1 MB",
-      uploadedDate: "Apr 5, 2025"
-    }
-  ];
+  ]);
   
-  const videoResources = [
-    {
-      id: 4,
-      title: "Cell Division Process",
-      description: "Visual explanation of mitosis and meiosis processes",
-      subject: "Biology",
-      duration: "15:32",
-      type: "Video",
-      uploadedDate: "Apr 12, 2025"
+  const form = useForm<z.infer<typeof resourceSchema>>({
+    resolver: zodResolver(resourceSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      subject: "",
     },
-    {
-      id: 5,
-      title: "World War II Overview",
-      description: "Documentary-style overview of key events in World War II",
-      subject: "History",
-      duration: "22:45",
-      type: "Video",
-      uploadedDate: "Apr 8, 2025"
-    },
-    {
-      id: 6,
-      title: "Python Programming Basics",
-      description: "Introduction to Python syntax and basic programming concepts",
-      subject: "Computer Science",
-      duration: "18:20",
-      type: "Video",
-      uploadedDate: "Apr 18, 2025"
-    }
-  ];
+  });
   
-  const webResources = [
-    {
-      id: 7,
-      title: "Khan Academy",
-      description: "Free educational videos and practice exercises on various subjects",
-      category: "Learning Platform",
-      url: "https://www.khanacademy.org/",
-      rating: 4.9
-    },
-    {
-      id: 8,
-      title: "National Geographic Education",
-      description: "Educational resources focusing on geography, science, and culture",
-      category: "Educational Website",
-      url: "https://education.nationalgeographic.org/",
-      rating: 4.7
-    },
-    {
-      id: 9,
-      title: "Desmos Graphing Calculator",
-      description: "Interactive online graphing calculator for mathematics",
-      category: "Math Tool",
-      url: "https://www.desmos.com/calculator",
-      rating: 4.8
-    }
-  ];
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   
-  const filterResources = (resources: any[]) => {
-    if (!searchTerm) return resources;
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+      form.setValue("file", e.target.files[0]);
+    }
+  };
+  
+  const onSubmit = (values: z.infer<typeof resourceSchema>) => {
+    const newResource: ResourceItem = {
+      id: Math.random().toString(36).substring(2, 9),
+      title: values.title,
+      description: values.description,
+      subject: values.subject,
+      fileName: selectedFile ? selectedFile.name : "No file attached",
+      date: new Date().toISOString().split('T')[0],
+    };
     
-    return resources.filter(resource => 
-      resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      resource.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (resource.subject && resource.subject.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      (resource.category && resource.category.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
+    setUploadedResources([newResource, ...uploadedResources]);
+    
+    toast({
+      title: "Resource uploaded successfully!",
+      description: `${values.title} has been added to your resources.`,
+    });
+    
+    form.reset();
+    setSelectedFile(null);
   };
   
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">Educational Resources</h1>
-        <p className="text-muted-foreground mt-2">
-          Access study materials and learning resources
-        </p>
-      </div>
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-6">Teacher Resources Management</h1>
       
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-        <Input 
-          className="pl-10" 
-          placeholder="Search for resources by title, subject, or keywords" 
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
-      
-      <Tabs defaultValue="documents" className="w-full">
-        <TabsList className="grid w-full sm:w-auto grid-cols-3">
-          <TabsTrigger value="documents">Documents</TabsTrigger>
-          <TabsTrigger value="videos">Videos</TabsTrigger>
-          <TabsTrigger value="websites">Websites</TabsTrigger>
-        </TabsList>
-        
-        <TabsContent value="documents" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filterResources(documentResources).map(resource => (
-              <Card key={resource.id}>
-                <CardHeader className="pb-2">
-                  <div className="flex justify-between">
-                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-100">
-                      {resource.subject}
-                    </Badge>
-                    <Badge variant="outline" className="bg-gray-50 text-gray-700 border-gray-100">
-                      {resource.type}
-                    </Badge>
-                  </div>
-                  <CardTitle className="mt-2">{resource.title}</CardTitle>
-                  <CardDescription>{resource.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="pb-2">
-                  <div className="flex justify-between text-sm text-gray-500">
-                    <span>Size: {resource.size}</span>
-                    <span>Uploaded: {resource.uploadedDate}</span>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full">
-                    <Download className="h-4 w-4 mr-2" />
-                    Download
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-1">
+          <Card className="shadow-md">
+            <CardHeader>
+              <CardTitle>Upload New Resource</CardTitle>
+              <CardDescription>Share materials with your students</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                  <FormField
+                    control={form.control}
+                    name="title"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Title</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Resource title" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Subject</FormLabel>
+                        <Select 
+                          onValueChange={field.onChange} 
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select subject" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            <SelectItem value="Mathematics">Mathematics</SelectItem>
+                            <SelectItem value="Science">Science</SelectItem>
+                            <SelectItem value="Literature">Literature</SelectItem>
+                            <SelectItem value="History">History</SelectItem>
+                            <SelectItem value="Art">Art</SelectItem>
+                            <SelectItem value="Physical Education">Physical Education</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="description"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Description</FormLabel>
+                        <FormControl>
+                          <Input 
+                            placeholder="Brief description of the resource" 
+                            {...field} 
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="file"
+                    render={() => (
+                      <FormItem>
+                        <FormLabel>File</FormLabel>
+                        <FormControl>
+                          <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                            <Input 
+                              type="file"
+                              className="hidden"
+                              id="file-upload" 
+                              onChange={handleFileChange}
+                            />
+                            <label 
+                              htmlFor="file-upload" 
+                              className="cursor-pointer flex flex-col items-center justify-center"
+                            >
+                              <Upload className="h-8 w-8 text-gray-500 mb-2" />
+                              {selectedFile ? (
+                                <p>{selectedFile.name}</p>
+                              ) : (
+                                <p>Click to upload or drag and drop</p>
+                              )}
+                            </label>
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <Button type="submit" className="w-full">
+                    Upload Resource
                   </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </TabsContent>
+                </form>
+              </Form>
+            </CardContent>
+          </Card>
+        </div>
         
-        <TabsContent value="videos" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filterResources(videoResources).map(resource => (
-              <Card key={resource.id}>
+        <div className="lg:col-span-2">
+          <h2 className="text-xl font-semibold mb-4">Your Uploaded Resources</h2>
+          <div className="space-y-4">
+            {uploadedResources.map((resource) => (
+              <Card key={resource.id} className="shadow-sm">
                 <CardHeader className="pb-2">
-                  <div className="flex justify-between">
-                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-100">
-                      {resource.subject}
-                    </Badge>
-                    <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-100">
-                      {resource.duration}
-                    </Badge>
-                  </div>
-                  <CardTitle className="mt-2">{resource.title}</CardTitle>
-                  <CardDescription>{resource.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="pb-2">
-                  <div className="aspect-video bg-gray-100 rounded-md flex items-center justify-center">
-                    <Video className="h-10 w-10 text-gray-400" />
-                  </div>
-                  <div className="text-sm text-gray-500 mt-2">
-                    <span>Uploaded: {resource.uploadedDate}</span>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full">
-                    Watch Video
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </TabsContent>
-        
-        <TabsContent value="websites" className="mt-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filterResources(webResources).map(resource => (
-              <Card key={resource.id}>
-                <CardHeader className="pb-2">
-                  <div className="flex justify-between">
-                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-100">
-                      {resource.category}
-                    </Badge>
-                    <div className="flex items-center">
-                      <span className="text-amber-500 mr-1">★</span>
-                      <span className="text-sm">{resource.rating}</span>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <CardTitle className="text-lg">{resource.title}</CardTitle>
+                      <CardDescription className="text-sm">{resource.subject} • {resource.date}</CardDescription>
                     </div>
+                    <Button variant="outline" size="sm" className="flex gap-2">
+                      <FileText className="h-4 w-4" /> Download
+                    </Button>
                   </div>
-                  <CardTitle className="mt-2 flex items-center gap-2">
-                    <Globe className="h-4 w-4" />
-                    {resource.title}
-                  </CardTitle>
-                  <CardDescription>{resource.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="pb-2">
-                  <div className="text-sm text-blue-600 truncate">
-                    {resource.url}
-                  </div>
+                <CardContent className="pt-0">
+                  <p className="text-sm text-gray-600">{resource.description}</p>
                 </CardContent>
-                <CardFooter>
-                  <Button className="w-full" variant="outline">
-                    Visit Website
-                  </Button>
+                <CardFooter className="pt-0 text-sm text-gray-500">
+                  File: {resource.fileName}
                 </CardFooter>
               </Card>
             ))}
           </div>
-        </TabsContent>
-      </Tabs>
+        </div>
+      </div>
     </div>
   );
 };
