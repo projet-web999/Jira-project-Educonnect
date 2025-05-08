@@ -10,7 +10,7 @@ import { Slider } from "@/components/ui/slider";
 
 // Translations for the map locations
 const locationTranslations = {
-  "Entrée / Sortie services et logement de fonction": "Entrance / Exit Services and Staff Housing",
+  "Entrée / Sortie services et logement de fonction": "Service Entrance/Exit and Staff Housing",
   "Services généraux": "General Services",
   "Logement de fonction": "Staff Housing",
   "Studios": "Studios",
@@ -35,16 +35,20 @@ const InteractiveMap = ({ selectedBuilding, setSelectedBuilding }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [locations] = useState([
-    { id: "services", name: "General Services", x: 32, y: 27, width: 10, height: 5 },
+    { id: "service_exit", name: "Service Entrance/Exit and Staff Housing", x: 15, y: 15, width: 10, height: 5 },
+    { id: "general_services", name: "General Services", x: 32, y: 27, width: 10, height: 5 },
     { id: "staff_housing1", name: "Staff Housing", x: 46, y: 25, width: 8, height: 5 },
     { id: "studios", name: "Studios", x: 60, y: 25, width: 6, height: 5 },
-    { id: "staff_housing2", name: "Staff Housing", x: 72, y: 30, width: 8, height: 5 },
+    { id: "transformer", name: "Transformer Station", x: 15, y: 40, width: 6, height: 4 },
     { id: "industrial", name: "Industrial Computing Department", x: 25, y: 50, width: 15, height: 7 },
     { id: "multimedia", name: "Computing and Multimedia Department", x: 65, y: 50, width: 15, height: 7 },
     { id: "electronics", name: "Electronics and Telecommunications Department", x: 25, y: 74, width: 15, height: 7 },
     { id: "web", name: "Web Multimedia Department", x: 65, y: 74, width: 15, height: 7 },
     { id: "secretariat", name: "General Secretariat", x: 25, y: 90, width: 10, height: 7 },
-    { id: "reception", name: "Reception", x: 50, y: 90, width: 8, height: 5 }
+    { id: "reception", name: "Reception", x: 50, y: 90, width: 8, height: 5 },
+    { id: "admin_entrance", name: "Administration Entrance", x: 20, y: 95, width: 8, height: 3 },
+    { id: "main_entrance", name: "Main Entrance", x: 50, y: 95, width: 8, height: 3 },
+    { id: "parking_entrance", name: "Parking Entrance", x: 80, y: 95, width: 8, height: 3 }
   ]);
 
   const handleZoomIn = () => {

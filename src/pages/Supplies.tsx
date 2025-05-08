@@ -6,28 +6,28 @@ import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  Package, 
+  Laptop, 
   PlusCircle, 
-  Gift, 
-  BookOpen, 
-  Pencil, 
+  Microchip, 
+  Database, 
+  Server, 
   CheckCircle,
   Calendar 
 } from 'lucide-react';
 
-// Mock data for supplies needed
+// Mock data for tech supplies needed
 const suppliesNeeded = [
-  { id: 1, name: 'Colored Pencils', quantity: 30, requestedDate: '2023-05-02', status: 'needed' },
-  { id: 2, name: 'Graph Paper', quantity: 100, requestedDate: '2023-05-05', status: 'needed' },
-  { id: 3, name: 'Craft Scissors', quantity: 15, requestedDate: '2023-05-10', status: 'needed' },
-  { id: 4, name: 'Glue Sticks', quantity: 20, requestedDate: '2023-05-15', status: 'needed' },
+  { id: 1, name: 'Raspberry Pi 4 Kits', quantity: 30, requestedDate: '2023-05-02', status: 'needed' },
+  { id: 2, name: 'USB Type-C Cables', quantity: 50, requestedDate: '2023-05-05', status: 'needed' },
+  { id: 3, name: 'Arduino Sensors', quantity: 15, requestedDate: '2023-05-10', status: 'needed' },
+  { id: 4, name: 'HDMI Cables', quantity: 20, requestedDate: '2023-05-15', status: 'needed' },
 ];
 
-// Mock data for supplies donated
+// Mock data for tech supplies donated
 const suppliesDonated = [
-  { id: 1, name: 'Notebooks', quantity: 20, donatedBy: 'Johnson Family', donationDate: '2023-04-15', status: 'received' },
-  { id: 2, name: 'Whiteboard Markers', quantity: 30, donatedBy: 'Smith Family', donationDate: '2023-04-20', status: 'received' },
-  { id: 3, name: 'Construction Paper', quantity: 100, donatedBy: 'Davis Family', donationDate: '2023-04-28', status: 'received' },
+  { id: 1, name: 'USB Drives (32GB)', quantity: 50, donatedBy: 'Tech Solutions Inc.', donationDate: '2023-04-15', status: 'received' },
+  { id: 2, name: 'Wireless Mice', quantity: 30, donatedBy: 'Computing Systems Ltd.', donationDate: '2023-04-20', status: 'received' },
+  { id: 3, name: 'Laptop Cooling Pads', quantity: 25, donatedBy: 'Digital Hardware Corp.', donationDate: '2023-04-28', status: 'received' },
 ];
 
 const Supplies = () => {
@@ -65,15 +65,15 @@ const Supplies = () => {
   return (
     <>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold">Classroom Supplies</h1>
-        <p className="text-gray-500 mt-1">Track and manage classroom supply donations</p>
+        <h1 className="text-3xl font-bold">Tech Equipment Supplies</h1>
+        <p className="text-gray-500 mt-1">Track and manage computer science lab equipment and technical supplies</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2">
           <Card>
             <CardHeader className="pb-3">
-              <CardTitle>Supply Management</CardTitle>
+              <CardTitle>Equipment Management</CardTitle>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="needed" onValueChange={setActiveTab}>
@@ -145,7 +145,7 @@ const Supplies = () => {
                   <label htmlFor="supply-name" className="text-sm font-medium">Supply Name</label>
                   <Input 
                     id="supply-name" 
-                    placeholder="e.g., Markers, Paper, Scissors"
+                    placeholder="e.g., Hard Drives, Monitors, Cables"
                     value={supplyName}
                     onChange={(e) => setSupplyName(e.target.value)}
                   />
@@ -180,7 +180,7 @@ const Supplies = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 rounded-lg bg-blue-50 border border-blue-100">
                   <div className="flex items-center space-x-2">
-                    <Package className="h-5 w-5 text-blue-500" />
+                    <Microchip className="h-5 w-5 text-blue-500" />
                     <span className="font-medium">Needed</span>
                   </div>
                   <div className="text-2xl font-bold mt-2">4 items</div>
@@ -198,15 +198,15 @@ const Supplies = () => {
                 <h3 className="font-medium mb-2">Most Needed Items</h3>
                 <ul className="space-y-2">
                   <li className="flex justify-between text-sm">
-                    <span>Colored Pencils</span>
+                    <span>Raspberry Pi 4 Kits</span>
                     <span className="font-medium">30</span>
                   </li>
                   <li className="flex justify-between text-sm">
-                    <span>Graph Paper</span>
-                    <span className="font-medium">100</span>
+                    <span>USB Type-C Cables</span>
+                    <span className="font-medium">50</span>
                   </li>
                   <li className="flex justify-between text-sm">
-                    <span>Glue Sticks</span>
+                    <span>HDMI Cables</span>
                     <span className="font-medium">20</span>
                   </li>
                 </ul>
@@ -228,17 +228,17 @@ const Supplies = () => {
               </div>
               
               <div className="flex items-start space-x-3">
-                <Gift className="h-5 w-5 text-blue-500 mt-0.5" />
+                <Laptop className="h-5 w-5 text-blue-500 mt-0.5" />
                 <div>
                   <h3 className="font-medium">How to Donate</h3>
                   <p className="text-sm text-gray-600">
-                    Bring items to the main office labeled with teacher name and classroom number.
+                    Bring equipment to the IT Department labeled with lab name and room number.
                   </p>
                 </div>
               </div>
               
               <Button variant="outline" className="w-full">
-                Print Supply List
+                Print Equipment List
               </Button>
             </CardContent>
           </Card>

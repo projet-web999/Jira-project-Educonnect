@@ -3,7 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, Check, Clock, Search, X } from "lucide-react";
+import { Calendar, Check, Clock, Search, X, Server, Database, Laptop, Microchip, Wifi } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
@@ -91,6 +91,14 @@ const Equipment = () => {
       status: "Checked Out",
       dueDate: "May 12, 2025",
       image: "https://placehold.co/100x100/e2e8f0/1e293b?text=MoCap"
+    },
+    {
+      id: 10,
+      name: "5G Networking Kit",
+      type: "Telecommunications",
+      location: "Network Infrastructure Lab",
+      status: "Available",
+      image: "https://placehold.co/100x100/e2e8f0/1e293b?text=5G"
     }
   ];
   
@@ -125,9 +133,9 @@ const Equipment = () => {
       
       <Tabs defaultValue="tech" className="w-full">
         <TabsList className="grid w-full sm:w-auto grid-cols-3">
-          <TabsTrigger value="tech">Tech Equipment</TabsTrigger>
+          <TabsTrigger value="tech">Computing</TabsTrigger>
           <TabsTrigger value="hardware">Hardware</TabsTrigger>
-          <TabsTrigger value="av">Audiovisual</TabsTrigger>
+          <TabsTrigger value="av">Multimedia</TabsTrigger>
         </TabsList>
         
         <TabsContent value="tech" className="mt-6">
@@ -197,6 +205,23 @@ const EquipmentCard = ({ item }: EquipmentCardProps) => {
     }
   };
   
+  const getItemIcon = (type: string) => {
+    switch(type.toLowerCase()) {
+      case "computer":
+        return <Laptop className="h-4 w-4 mr-2 text-blue-500" />;
+      case "hardware":
+        return <Microchip className="h-4 w-4 mr-2 text-emerald-500" />;
+      case "multimedia":
+        return <Server className="h-4 w-4 mr-2 text-purple-500" />;
+      case "iot":
+        return <Database className="h-4 w-4 mr-2 text-amber-500" />;
+      case "telecommunications":
+        return <Wifi className="h-4 w-4 mr-2 text-indigo-500" />;
+      default:
+        return <Laptop className="h-4 w-4 mr-2 text-gray-500" />;
+    }
+  };
+  
   return (
     <Card>
       <CardHeader className="pb-2">
@@ -218,8 +243,8 @@ const EquipmentCard = ({ item }: EquipmentCardProps) => {
             className="w-20 h-20 rounded-md object-cover"
           />
           <div>
-            <div className="text-sm mb-1">
-              <span className="font-medium">Type:</span> {item.type}
+            <div className="text-sm mb-1 flex items-center">
+              <span className="font-medium flex items-center">{getItemIcon(item.type)}Type:</span> {item.type}
             </div>
             <div className="text-sm mb-1">
               <span className="font-medium">Location:</span> {item.location}

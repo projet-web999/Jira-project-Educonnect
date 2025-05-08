@@ -13,45 +13,45 @@ const Gradebook = () => {
       percentage: 91,
       trend: "up",
       assignments: [
-        { id: 1, name: "Algebra Quiz", score: 88, totalPoints: 100, date: "Apr 15, 2025" },
-        { id: 2, name: "Probability Assignment", score: 95, totalPoints: 100, date: "Apr 22, 2025" },
-        { id: 3, name: "Geometry Test", score: 92, totalPoints: 100, date: "May 1, 2025" },
+        { id: 1, name: "Linear Algebra Quiz", score: 88, totalPoints: 100, date: "Apr 15, 2025" },
+        { id: 2, name: "Discrete Math Assignment", score: 95, totalPoints: 100, date: "Apr 22, 2025" },
+        { id: 3, name: "Calculus Test", score: 92, totalPoints: 100, date: "May 1, 2025" },
       ]
     },
     {
-      name: "Science",
+      name: "Computer Science",
       teacher: "Mr. Robert Chen",
       currentGrade: "B+",
       percentage: 87,
       trend: "stable",
       assignments: [
-        { id: 4, name: "Physics Lab Report", score: 85, totalPoints: 100, date: "Apr 10, 2025" },
-        { id: 5, name: "Chemistry Quiz", score: 88, totalPoints: 100, date: "Apr 25, 2025" },
-        { id: 6, name: "Biology Project", score: 90, totalPoints: 100, date: "May 3, 2025" },
+        { id: 4, name: "Data Structures Lab", score: 85, totalPoints: 100, date: "Apr 10, 2025" },
+        { id: 5, name: "Algorithms Quiz", score: 88, totalPoints: 100, date: "Apr 25, 2025" },
+        { id: 6, name: "Programming Project", score: 90, totalPoints: 100, date: "May 3, 2025" },
       ]
     },
     {
-      name: "English Literature",
+      name: "Technical Communication",
       teacher: "Ms. Elizabeth Taylor",
       currentGrade: "A",
       percentage: 94,
       trend: "up",
       assignments: [
-        { id: 7, name: "Essay Analysis", score: 95, totalPoints: 100, date: "Apr 12, 2025" },
-        { id: 8, name: "Reading Comprehension", score: 92, totalPoints: 100, date: "Apr 20, 2025" },
-        { id: 9, name: "Poetry Presentation", score: 96, totalPoints: 100, date: "May 5, 2025" },
+        { id: 7, name: "Documentation Analysis", score: 95, totalPoints: 100, date: "Apr 12, 2025" },
+        { id: 8, name: "Technical Writing", score: 92, totalPoints: 100, date: "Apr 20, 2025" },
+        { id: 9, name: "API Documentation", score: 96, totalPoints: 100, date: "May 5, 2025" },
       ]
     },
     {
-      name: "History",
+      name: "Web Development",
       teacher: "Dr. Michael Brown",
       currentGrade: "B",
       percentage: 83,
       trend: "down",
       assignments: [
-        { id: 10, name: "World War II Essay", score: 80, totalPoints: 100, date: "Apr 8, 2025" },
-        { id: 11, name: "Civil Rights Movement Quiz", score: 85, totalPoints: 100, date: "Apr 18, 2025" },
-        { id: 12, name: "Ancient Civilizations Test", score: 82, totalPoints: 100, date: "May 2, 2025" },
+        { id: 10, name: "Frontend Project", score: 80, totalPoints: 100, date: "Apr 8, 2025" },
+        { id: 11, name: "JavaScript Quiz", score: 85, totalPoints: 100, date: "Apr 18, 2025" },
+        { id: 12, name: "Responsive Design", score: 82, totalPoints: 100, date: "May 2, 2025" },
       ]
     }
   ];
@@ -93,7 +93,7 @@ const Gradebook = () => {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Gradebook</h1>
         <p className="text-muted-foreground mt-2">
-          Track your academic performance and assignments
+          Track your academic performance in computer science and technology courses
         </p>
       </div>
       
